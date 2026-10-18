@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="{{ language | lower if language else 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10110f">
+  <meta name="description" content="{{ description or 'A personal collection of things that stay with me.' }}">
+  <title>{{ title }} · Tzar: Everything</title>
+  <link rel="icon" href="{{ '/assets/images/mark.svg' | url }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | url }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="{{ '/' | url }}" aria-label="Tzar: Everything, home"><span class="wordmark-mark">t.</span><span>Tzar: Everything</span></a>
+    <nav aria-label="Main navigation"><a href="{{ '/' | url }}">Journal</a><a href="{{ '/about/' | url }}">About</a><span class="language-note">ES · EN</span></nav>
+  </header>
+  <main id="main">{{ content | safe }}</main>
+  <footer class="site-footer wrap"><span>Collected slowly, shared quietly.</span><span>© Tzar</span></footer>
+</body>
+</html>

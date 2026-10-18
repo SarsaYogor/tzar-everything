@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+---
+<article class="post wrap-narrow">
+  <a class="back-link" href="{{ '/' | url }}">← All entries</a>
+  <header class="post-header">
+    <p class="eyebrow">{{ date | readableDate }}{% if language %} <span>·</span> {{ language }}{% endif %}</p>
+    <h1>{{ title }}</h1>
+    {% if summary %}<p class="post-summary">{{ summary }}</p>{% endif %}
+  </header>
+  <div class="prose">{{ content | safe }}</div>
+  {% if attachments and attachments.length %}
+  <section class="attachments" aria-labelledby="attachments-title">
+    <p class="eyebrow" id="attachments-title">Kept here</p>
+    <ul>{% for item in attachments %}<li><a href="{{ item.url | url }}" download>{{ item.title }} <span>↓</span></a>{% if item.note %}<small>{{ item.note }}</small>{% endif %}</li>{% endfor %}</ul>
+  </section>
+  {% endif %}
+  <p class="post-end" aria-hidden="true">✳</p>
+</article>
