@@ -22,7 +22,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - uses: actions/configure-pages@v5
+      - name: Set up GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - run: npm ci
       - name: Build the site
         run: npm run build -- --pathprefix="/${GITHUB_REPOSITORY#*/}/"
@@ -32,3 +35,4 @@ jobs:
       - name: Publish the site
         id: deployment
         uses: actions/deploy-pages@v4
+
